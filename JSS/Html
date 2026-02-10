@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseOne | IT & Tech Solutions</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #0056b3;       /* Deep Trustworthy Blue */
+            --accent-cyan: #00e5ff;        /* Tech/Modern Highlight */
+            --dark-bg: #0f172a;            /* Dark Navy Background */
+            --light-bg: #f1f5f9;           /* Light Gray Background */
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --white: #ffffff;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-padding { padding: 80px 0; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .logo span { color: var(--text-dark); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--primary-blue); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--accent-cyan);
+            color: var(--dark-bg);
+            padding: 14px 35px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--dark-bg);
+            margin-bottom: 10px;
+        }
+        
+        .section-subtitle {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 4px solid var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: var(--dark-bg);
+        }
+
+        /* --- ABOUT / INFO SECTION --- */
+        .about {
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* --- CONTACT BANNER --- */
+        .contact-banner {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-cyan);
+            text-decoration: underline;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0b1120;
+            color: #94a3b8;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin-top: 15px; gap: 20px; }
+            .about-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                Pulse<span>One</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Innovative Digital Solutions</h1>
+            <p>Empowering businesses and individuals in Brunei with reliable technology, smart devices, and seamless IT support.</p>
+            <a href="https://wa.me/6738146587" class="btn-main">Get Connected</a>
+        </div>
+    </section>
+
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-subtitle">What We Do</span>
+                <h2 class="section-title">Our Expertise</h2>
+            </div>
+            
+            <div class="services-grid" style="margin-top: 40px;">
+                <div class="service-card">
+                    <span class="icon">💻</span>
+                    <h3>IT Support & Setup</h3>
+                    <p>Professional setup for home and office networks. We ensure your systems are running smoothly, securely, and efficiently.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="icon">📱</span>
+                    <h3>Devices & Gadgets</h3>
+                    <p>Sourcing high-quality tech devices. From smartphones to essential peripherals, we connect you with the hardware you need.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="icon">🔧</span>
+                    <h3>Repairs & Diagnostics</h3>
+                    <p>Fast and reliable troubleshooting for your devices. Don't let technical issues slow you down.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <span class="section-subtitle">Why Choose Us</span>
+                    <div class="about-text">
+                        <h3>PulseOne: Technology at Your Rhythm</h3>
+                        <p>At PulseOne, we believe technology should be simple, accessible, and reliable. Based in Brunei, we are dedicated to providing top-tier digital solutions tailored to your needs.</p>
+                        <p>Whether you need a complex office network setup or advice on the latest personal tech, our team is ready to assist.</p>
+                    </div>
+                </div>
+                <div style="background: var(--light-bg); padding: 40px; border-radius: 12px;">
+                    <h4>Our Promise</h4>
+                    <ul class="feature-list">
+                        <li>Responsive Local Support</li>
+                        <li>Transparent Pricing</li>
+                        <li>Quality Assurance</li>
+                        <li>Personalized Consultation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-banner">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <h2 style="color: white; margin-bottom: 10px;">Get in Touch</h2>
+                <p style="opacity: 0.8;">Ready to upgrade your tech? Contact us today.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>📞 Call / WhatsApp</h4>
+                    <a href="https://wa.me/6738146587">+673 814 6587</a>
+                </div>
+                
+                <div class="contact-item">
+                    <h4>✉️ Email Us</h4>
+                    <a href="mailto:pulseone239@gmail.com">pulseone239@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <h4>📍 Serving</h4>
+                    <span style="display:block; color:white;">Brunei Darussalam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <div style="font-size: 1.2rem; font-weight: bold; color: white; margin-bottom: 10px;">PulseOne</div>
+            <p>Your trusted partner in digital innovation.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PulseOne Solutions. All rights reserved.</p>
+                <p style="font-size: 0.8rem; opacity: 0.5;">pulseone.it.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
