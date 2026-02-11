@@ -5,44 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PulseOne Furniture Brunei. Premium home collections including sofas, dining, and bedroom sets with local delivery.">
     <title>PulseOne Furniture | Premium Home Collections</title>
+    
     <script src="https://unpkg.com/feather-icons"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #5D4037; --secondary: #212121; --accent: #D7CCC8;
             --price: #388E3C; --bg-light: #F9F7F5; --white: #ffffff;
             --shadow: 0 10px 30px rgba(0,0,0,0.05); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--secondary); line-height: 1.7; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         .container { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
+
         header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.8rem; color: var(--primary); text-decoration: none; letter-spacing: 2px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
         nav ul { display: flex; list-style: none; gap: 40px; }
         nav a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; transition: var(--transition); }
         nav a:hover { color: var(--primary); }
+
         .hero { height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed; }
         .hero-content h1 { font-size: 4.5rem; margin-bottom: 20px; }
         .btn-luxury { padding: 18px 45px; background-color: var(--white); color: var(--secondary); text-decoration: none; text-transform: uppercase; font-weight: 600; border: 1px solid var(--white); transition: var(--transition); }
         .btn-luxury:hover { background: transparent; color: var(--white); }
+
         .section-padding { padding: 100px 0; }
         .section-title { text-align: center; font-size: 3rem; margin-bottom: 60px; color: var(--primary); }
+
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .product-card { background: var(--white); transition: var(--transition); overflow: hidden; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+        .product-card { background: var(--white); transition: var(--transition); overflow: hidden; border: 1px solid transparent; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); border-color: #f0f0f0; }
         .image-container { width: 100%; height: 350px; overflow: hidden; background: #eee; }
         .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .product-card:hover .product-image { transform: scale(1.1); }
         .product-info { padding: 30px; text-align: center; }
+        .product-title { font-size: 1.4rem; margin-bottom: 10px; color: var(--secondary); }
+        .product-desc { font-size: 0.95rem; color: #777; margin-bottom: 20px; height: 50px; }
         .product-price { font-size: 1.3rem; color: var(--price); font-weight: 700; display: block; margin-bottom: 25px; }
         .btn-order { display: inline-block; width: 100%; padding: 15px; border: 1px solid var(--primary); color: var(--primary); text-decoration: none; text-transform: uppercase; font-weight: 600; transition: var(--transition); }
         .btn-order:hover { background: var(--primary); color: var(--white); }
+
         .policies { background-color: var(--accent); }
         .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .policy-card { background: var(--white); padding: 40px; text-align: center; }
+        .policy-card { background: var(--white); padding: 40px; text-align: center; transition: var(--transition); }
+        .policy-card i { color: var(--primary); margin-bottom: 20px; }
+
         .contact-banner { background-color: var(--primary); color: var(--white); padding: 100px 0; text-align: center; }
-        .contact-link { color: var(--white); font-size: 1.5rem; text-decoration: none; display: block; margin: 15px 0; }
+        .contact-link { color: var(--white); font-size: 1.5rem; text-decoration: none; display: block; margin: 15px 0; font-weight: 300; }
         footer { background: #1a1a1a; color: #888; padding: 50px 0; text-align: center; }
         @media (max-width: 768px) { .hero-content h1 { font-size: 2.8rem; } nav ul { display: none; } }
     </style>
@@ -73,17 +86,16 @@
 
     <section id="collection" class="section-padding container">
         <h2 class="section-title">The Curator's Selection</h2>
-        <div class="product-grid" id="gallery">
-            </div>
+        <div class="product-grid" id="gallery"></div>
     </section>
 
     <section id="policies" class="section-padding policies">
         <div class="container">
             <h2 class="section-title">Our Commitment</h2>
             <div class="policy-grid">
-                <div class="policy-card"><i data-feather="truck" size="40"></i><h3>Seamless Logistics</h3><p>Serving Brunei & Malaysia with precision.</p></div>
-                <div class="policy-card"><i data-feather="shield-check" size="40"></i><h3>PulseOne Warranty</h3><p>30-day manufacturing warranty. 7-day hassle-free returns.</p></div>
-                <div class="policy-card"><i data-feather="credit-card" size="40"></i><h3>Secure Payment</h3><p>Bank Transfer or Cash on Delivery (COD).</p></div>
+                <div class="policy-card"><i data-feather="truck" size="40"></i><h3>Seamless Logistics</h3><p>Serving <strong>Brunei & Malaysia</strong> with precision. White-glove delivery within 1–7 business days.</p></div>
+                <div class="policy-card"><i data-feather="shield-check" size="40"></i><h3>PulseOne Warranty</h3><p>A 30-day structural guarantee ensures your investment is protected. 7-day hassle-free returns.</p></div>
+                <div class="policy-card"><i data-feather="credit-card" size="40"></i><h3>Secure Payment</h3><p>Flexible procurement through Bank Transfer or Cash on Delivery (COD) for your convenience.</p></div>
             </div>
         </div>
     </section>
@@ -91,7 +103,7 @@
     <section id="contact" class="contact-banner">
         <div class="container">
             <h2>Personalized Concierge</h2>
-            <a href="https://wa.me/6738146587" class="contact-link">+673 814 6587</a>
+            <a href="https://wa.me/6738146587" class="contact-link" target="_blank">+673 814 6587</a>
             <a href="mailto:pulseone239@gmail.com" class="contact-link">pulseone239@gmail.com</a>
         </div>
     </section>
@@ -101,18 +113,47 @@
     <script>
         feather.replace();
         const catalog = [
-            { title: "Nordic 3-Seater Sofa", price: "499.00", desc: "Premium fabric on walnut legs.", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600" },
-            { title: "Marble Dining Set (1+6)", price: "850.00", desc: "Honed marble with leather chairs.", img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600" },
-            { title: "Royal King Bed Frame", price: "620.00", desc: "Deep-tufted velvet with storage.", img: "https://images.unsplash.com/photo-1505693416388-b0346ef4143d?auto=format&fit=crop&w=600" }
+            { title: "Nordic 3-Seater", price: "499.00", desc: "Walnut legs, water-repellent.", img: "photo-1555041469-a586c61ea9bc" },
+            { title: "Marble Dining", price: "850.00", desc: "Carrara marble, leather chairs.", img: "photo-1617806118233-18e1de247200" },
+            { title: "Royal King Bed", price: "620.00", desc: "Tufted velvet with storage.", img: "photo-1505693416388-b0346ef4143d" },
+            { title: "Modern L-Shape", price: "799.00", desc: "Modular lounge, performance linen.", img: "photo-1540574163026-643ea20ade25" },
+            { title: "Teak TV Cabinet", price: "250.00", desc: "Sustainable teak, slatted vents.", img: "photo-1601760562234-9814eea66632" },
+            { title: "Glass Coffee Table", price: "180.00", desc: "Tempered glass, gold legs.", img: "photo-1532372320572-cda25653a26d" },
+            { title: "Sliding Wardrobe", price: "550.00", desc: "Mirror doors, soft-close.", img: "photo-1595515106969-1ce29566ff1c" },
+            { title: "Ergo Office Suite", price: "120.00", desc: "Breathable mesh, lumbar support.", img: "photo-1505843490538-5133c6c7d0e1" },
+            { title: "Shoe Cabinet", price: "140.00", desc: "3-door ventilated design.", img: "photo-1595428774223-ef52624120d2" },
+            { title: "Minimalist Desk", price: "110.00", desc: "White finish, dual drawers.", img: "photo-1518455027359-f3f8164ba6bd" },
+            { title: "Velvet Accent", price: "210.00", desc: "Mid-century emerald silhouette.", img: "photo-1586023492125-27b2c045efd7" },
+            { title: "Rustic Bookshelf", price: "155.00", desc: "Industrial steel and reclaimed oak.", img: "photo-1594620302200-9a762244a156" },
+            { title: "Outdoor Bistro", price: "320.00", desc: "Weatherproof 3-piece patio set.", img: "photo-1533090161767-e6ffed986c88" },
+            { title: "Leather Recliner", price: "450.00", desc: "Ergonomic reclining motor.", img: "photo-1567016432779-094069958ea5" },
+            { title: "Island Cart", price: "280.00", desc: "Mobile storage with wood top.", img: "photo-1556912177-c54030639a60" },
+            { title: "Vanity Mirror", price: "195.00", desc: "LED border, touch sensor.", img: "photo-1616486341351-7025244affc0" },
+            { title: "Console Table", price: "175.00", desc: "Slim profile entryway console.", img: "photo-1615529182904-14819c35db37" },
+            { title: "Bar Stools (2)", price: "135.00", desc: "Adjustable height swivel stools.", img: "photo-1503602642458-232111445657" },
+            { title: "Rocking Chair", price: "240.00", desc: "Nursery fabric, gentle motion.", img: "photo-1581539250439-c96689b516dd" },
+            { title: "Floating Shelves", price: "45.00", desc: "Set of 3 minimalist wall shelves.", img: "photo-1594488311303-0e702bc92f9d" },
+            { title: "Tufted Headboard", price: "190.00", desc: "Queen size padded velvet.", img: "photo-1522771739844-6a9f6d5f14af" },
+            { title: "Ottoman Bench", price: "115.00", desc: "Grey fabric, hidden storage.", img: "photo-1592078615290-033ee584e267" },
+            { title: "Nested Tables", price: "160.00", desc: "Space-saving circular set.", img: "photo-1616046229478-9901c5536a45" },
+            { title: "Chesterfield Sofa", price: "1100.00", desc: "Classic button-tufted leather.", img: "photo-1583847268964-b28dc8f51f92" },
+            { title: "Entryway Bench", price: "95.00", desc: "Natural wood with shoe rack.", img: "photo-1616627544414-111e0486c429" },
+            { title: "Bean Bag Lounger", price: "85.00", desc: "Waterproof XL bean bag.", img: "photo-1589182373726-e4f658ab50f0" },
+            { title: "Corner Gaming Desk", price: "225.00", desc: "L-shaped ergonomic work desk.", img: "photo-1493932484895-752d1471eab5" },
+            { title: "Bamboo Rack", price: "55.00", desc: "Eco-friendly bathroom storage.", img: "photo-1584622650111-993a426fbf0a" },
+            { title: "Buffet Server", price: "480.00", desc: "Dining sideboard, wine rack.", img: "photo-1594026112284-02bb6f3352fe" },
+            { title: "Daybed Trundle", price: "590.00", desc: "Includes pull-out guest mattress.", img: "photo-1540518614846-7eded433c457" },
+            { title: "Tray Table", price: "35.00", desc: "Portable bamboo laptop tray.", img: "photo-1538688505396-19349c25399d" },
+            { title: "Jewelry Armoire", price: "260.00", desc: "Full-length mirror hidden box.", img: "photo-1616486029423-aaa47a958fd3" },
+            { title: "Floor Shelf Lamp", price: "75.00", desc: "Modern light, wood display.", img: "photo-1513506003901-1e6a229e2d15" }
         ];
-        // Dynamic duplication to reach 33 items for demo
-        const fullCatalog = [...catalog, ...catalog, ...catalog, ...catalog, ...catalog, ...catalog, ...catalog, ...catalog, ...catalog, ...catalog, ...catalog];
+
         const gallery = document.getElementById('gallery');
-        fullCatalog.forEach(p => {
+        catalog.forEach(p => {
             const el = document.createElement('div'); el.className = 'product-card';
-            el.innerHTML = `<div class="image-container"><img src="${p.img}" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'"></div>
+            el.innerHTML = `<div class="image-container"><img src="https://images.unsplash.com/${p.img}?auto=format&fit=crop&w=600&q=80" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'"></div>
                 <div class="product-info"><h3 class="product-title">${p.title}</h3><p class="product-desc">${p.desc}</p><span class="product-price">BND $${p.price}</span>
-                <a href="https://wa.me/6738146587?text=Inquiry:%20${encodeURIComponent(p.title)}" class="btn-order" target="_blank">Order Collection</a></div>`;
+                <a href="https://wa.me/6738146587?text=Inquiry:%20${encodeURIComponent(p.title)}" class="btn-order" target="_blank">Inquire Collection</a></div>`;
             gallery.appendChild(el);
         });
     </script>
