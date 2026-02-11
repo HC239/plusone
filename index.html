@@ -103,7 +103,7 @@
     <section id="contact" class="contact-banner">
         <div class="container">
             <h2>Personalized Concierge</h2>
-            <a href="https://wa.me/6738146587" class="contact-link" target="_blank">+673 814 6587</a>
+            <a href="https://wa.me/6738226876" class="contact-link" target="_blank">+673 822 6876</a>
             <a href="mailto:pulseone239@gmail.com" class="contact-link">pulseone239@gmail.com</a>
         </div>
     </section>
@@ -151,9 +151,10 @@
         const gallery = document.getElementById('gallery');
         catalog.forEach(p => {
             const el = document.createElement('div'); el.className = 'product-card';
+            // Updated JavaScript Phone Number
             el.innerHTML = `<div class="image-container"><img src="https://images.unsplash.com/${p.img}?auto=format&fit=crop&w=600&q=80" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'"></div>
                 <div class="product-info"><h3 class="product-title">${p.title}</h3><p class="product-desc">${p.desc}</p><span class="product-price">BND $${p.price}</span>
-                <a href="https://wa.me/6738146587?text=Inquiry:%20${encodeURIComponent(p.title)}" class="btn-order" target="_blank">Inquire Collection</a></div>`;
+                <a href="https://wa.me/6738226876?text=Inquiry:%20${encodeURIComponent(p.title)}" class="btn-order" target="_blank">Inquire Collection</a></div>`;
             gallery.appendChild(el);
         });
     </script>
