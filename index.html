@@ -3,378 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PulseOne Furniture Brunei. Premium home collections including sofas, dining, and bedroom sets with local delivery.">
-    <title>PulseOne Furniture | Premium Home Collections</title>
-    
+    <title>ESG & Sustainability | PulseOne Furniture Solutions</title>
     <script src="https://unpkg.com/feather-icons"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
     <style>
-        /* --- BRAND DESIGN SYSTEM --- */
         :root {
             --primary: #5D4037;      /* Rich Espresso */
             --secondary: #212121;    /* Deep Charcoal */
             --accent: #D7CCC8;       /* Warm Parchment */
-            --price: #388E3C;        /* Emerald Green */
+            --green: #388E3C;        /* Sustainability Green */
             --bg-light: #F9F7F5;     /* Soft Linen */
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s ease;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--secondary); line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--secondary);
-            line-height: 1.7;
-            scroll-behavior: smooth;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
-
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
-
-        /* --- HEADER --- */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
-        }
-
+        /* HEADER */
+        header { background: var(--white); padding: 20px 0; border-bottom: 1px solid #eee; }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; color: var(--primary); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        nav a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .logo {
-            font-size: 1.8rem;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-transform: uppercase;
-        }
+        /* HERO */
+        .esg-hero { padding: 100px 0 60px; text-align: center; }
+        .esg-hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--primary); }
+        .tagline { color: var(--green); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        .divider { width: 60px; height: 3px; background: var(--green); margin: 0 auto 40px; }
 
-        nav ul { display: flex; list-style: none; gap: 40px; }
+        /* IMAGE SECTION */
+        .image-wrapper { width: 100%; height: 450px; overflow: hidden; margin-bottom: 60px; border-radius: 4px; }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
-        nav a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
+        /* CONTENT */
+        .content-section { margin-bottom: 80px; }
+        .content-section h2 { font-size: 2.2rem; margin-bottom: 30px; color: var(--secondary); }
+        .content-section p { margin-bottom: 25px; font-size: 1.1rem; font-weight: 300; }
+        
+        .impact-box { background: var(--white); padding: 50px; border-left: 5px solid var(--green); margin: 50px 0; }
+        .impact-box h3 { color: var(--green); margin-bottom: 20px; font-size: 1.8rem; }
 
-        nav a:hover { color: var(--primary); }
-
-        /* --- HERO --- */
-        .hero {
-            height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-content h1 { font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1; }
-        .hero-content p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px; font-weight: 300; }
-
-        .btn-luxury {
-            padding: 18px 45px;
-            background-color: var(--white);
-            color: var(--secondary);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            border: 1px solid var(--white);
-        }
-
-        .btn-luxury:hover { background: transparent; color: var(--white); }
-
-        /* --- PRODUCT GRID --- */
-        .section-padding { padding: 100px 0; }
-        .section-title { text-align: center; font-size: 3rem; margin-bottom: 60px; color: var(--primary); }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background: var(--white);
-            transition: var(--transition);
-            overflow: hidden;
-            border: 1px solid transparent;
-        }
-
-        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); border-color: #f0f0f0; }
-
-        .image-container { width: 100%; height: 350px; overflow: hidden; background: #eee; }
-        .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .product-card:hover .product-image { transform: scale(1.1); }
-
-        .product-info { padding: 30px; text-align: center; }
-        .product-title { font-size: 1.4rem; margin-bottom: 10px; color: var(--secondary); }
-        .product-desc { font-size: 0.95rem; color: #777; margin-bottom: 20px; font-weight: 300; height: 50px; }
-        .product-price { font-size: 1.3rem; color: var(--price); font-weight: 700; display: block; margin-bottom: 25px; }
-
-        .btn-order {
-            display: inline-block;
-            width: 100%;
-            padding: 15px;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn-order:hover { background: var(--primary); color: var(--white); }
-
-        /* --- POLICIES --- */
-        .policies { background-color: var(--accent); }
-        .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .policy-card { background: var(--white); padding: 40px; text-align: center; transition: var(--transition); }
-        .policy-card i { color: var(--primary); margin-bottom: 20px; }
-        .policy-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
-        .policy-card p, .policy-card li { font-size: 0.95rem; color: #555; list-style: none; margin-bottom: 10px; }
-
-        /* --- CONTACT --- */
-        .contact-banner { background-color: var(--primary); color: var(--white); padding: 100px 0; text-align: center; }
-        .contact-link { color: var(--white); font-size: 1.5rem; text-decoration: none; display: block; margin: 15px 0; font-weight: 300; }
-        .contact-link:hover { opacity: 0.8; }
-
-        footer { background: #1a1a1a; color: #888; padding: 50px 0; text-align: center; font-size: 0.8rem; letter-spacing: 1px; }
-
-        /* --- MOBILE --- */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            nav ul { display: none; }
-            .section-title { font-size: 2.2rem; }
-        }
+        footer { background: #1a1a1a; color: #888; padding: 40px 0; text-align: center; font-size: 0.8rem; letter-spacing: 1px; margin-top: 100px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container nav-wrapper">
-            <a href="#" class="logo"><i data-feather="compass"></i> PulseOne</a>
-            <nav>
-                <ul>
-                    <li><a href="#collection">Collection</a></li>
-                    <li><a href="#policies">Service</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <a href="index.html" class="logo"><i data-feather="compass"></i> PulseOne</a>
+            <nav><a href="index.html">Back to Home</a></nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <p>ESTABLISHED 2026</p>
-            <h1>Artisan Furniture <br>for Modern Living</h1>
-            <a href="#collection" class="btn-luxury">Explore Gallery</a>
-        </div>
-    </section>
+    <main class="container">
+        <section class="esg-hero">
+            <span class="tagline">Our Environmental Promise</span>
+            <h1>Furniture with a Purpose</h1>
+            <div class="divider"></div>
+            <p>At PulseOne, we believe that beautiful homes should not come at the cost of our planet's future. Our ESG commitment is built on the principle of circular responsibility.</p>
+        </section>
 
-    <section id="collection" class="section-padding container">
-        <h2 class="section-title">The Curator's Selection</h2>
-        <div class="product-grid" id="gallery">
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Nordic 3-Seater Sofa</h3>
-                    <p class="product-desc">Premium water-repellent fabric on solid walnut legs.</p>
-                    <span class="product-price">BND $499.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Nordic%203-Seater%20Sofa" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Marble Dining Set (1+6)</h3>
-                    <p class="product-desc">Honed carrara marble top with hand-stitched leather.</p>
-                    <span class="product-price">BND $850.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Marble%20Dining%20Set" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1505693416388-b0346ef4143d?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Royal King Bed Frame</h3>
-                    <p class="product-desc">Deep-tufted velvet upholstery with integrated storage.</p>
-                    <span class="product-price">BND $620.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Royal%20King%20Bed%20Frame" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Modern L-Shape Sofa</h3>
-                    <p class="product-desc">Modular lounge system in performance linen.</p>
-                    <span class="product-price">BND $799.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Modern%20L-Shape%20Sofa" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1601760562234-9814eea66632?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Teak TV Cabinet</h3>
-                    <p class="product-desc">Sustainable solid teak with slatted ventilation.</p>
-                    <span class="product-price">BND $250.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Teak%20TV%20Cabinet" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Sliding Wardrobe</h3>
-                    <p class="product-desc">Floor-to-ceiling mirror doors with soft-close tech.</p>
-                    <span class="product-price">BND $550.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Sliding%20Wardrobe" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Ergo Office Suite</h3>
-                    <p class="product-desc">High-density mesh with adaptive lumbar support.</p>
-                    <span class="product-price">BND $120.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Ergo%20Office%20Suite" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Velvet Accent Chair</h3>
-                    <p class="product-desc">Mid-century silhouette in forest emerald velvet.</p>
-                    <span class="product-price">BND $210.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Velvet%20Accent%20Chair" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Industrial Bookshelf</h3>
-                    <p class="product-desc">Powder-coated steel with reclaimed oak shelves.</p>
-                    <span class="product-price">BND $155.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Industrial%20Bookshelf" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Leather Recliner</h3>
-                    <p class="product-desc">Top-grain leather with ergonomic reclining motor.</p>
-                    <span class="product-price">BND $450.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Leather%20Recliner" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
+        <section class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80" alt="Tree Sapling Growth">
+        </section>
+
+        <section class="content-section">
+            <h2>The PulseOne Tree Fund</h2>
+            <p>Timber is at the heart of fine furniture, but its harvest leaves a footprint. To honor the materials we use, PulseOne has partnered with global and local reforestation initiatives. For every signature collection piece sold, a dedicated contribution is made to a <strong>Tree Planting Fund</strong>.</p>
             
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Outdoor Bistro Set</h3>
-                    <p class="product-desc">Weatherproof 3-piece patio set for modern decks.</p>
-                    <span class="product-price">BND $320.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Outdoor%20Bistro%20Set" class="btn-order" target="_blank">Order Collection</a>
-                </div>
+            <div class="impact-box">
+                <h3>Our Goal: 10,000 Saplings by 2027</h3>
+                <p>By investing in reforestation, we are not just planting trees—we are restoring biodiversity, supporting local soil health, and capturing carbon for a cooler planet. This is our way of ensuring that the comfort we provide in your home is reflected in the health of our Earth.</p>
             </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=600" class="product-image" onerror="this.src='https://placehold.co/600x400/8D6E63/white?text=PulseOne+Product'">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Nursery Rocking Chair</h3>
-                    <p class="product-desc">Soft linen fabric with gentle rocking motion.</p>
-                    <span class="product-price">BND $240.00</span>
-                    <a href="https://wa.me/6738146587?text=Inquiry:%20Nursery%20Rocking%20Chair" class="btn-order" target="_blank">Order Collection</a>
-                </div>
-            </div>
-            </div>
-    </section>
 
-    <section id="policies" class="section-padding policies">
-        <div class="container">
-            <h2 class="section-title">Our Commitment</h2>
-            <div class="policy-grid">
-                <div class="policy-card">
-                    <i data-feather="truck" size="40"></i>
-                    <h3>Seamless Logistics</h3>
-                    <p>Serving <strong>Brunei & Malaysia</strong> with precision. White-glove delivery within 1–7 business days.</p>
-                </div>
-                <div class="policy-card">
-                    <i data-feather="shield-check" size="40"></i>
-                    <h3>PulseOne Warranty</h3>
-                    <p>A 30-day structural guarantee ensures your investment is protected. 7-day hassle-free returns.</p>
-                </div>
-                <div class="policy-card">
-                    <i data-feather="credit-card" size="40"></i>
-                    <h3>Secure Payment</h3>
-                    <p>Flexible procurement through Bank Transfer or Cash on Delivery (COD) for your convenience.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-banner">
-        <div class="container">
-            <h2>Personalized Concierge</h2>
-            <p>Our advisors are available for custom requests and catalog inquiries.</p>
-            <a href="https://wa.me/6738146587" class="contact-link">+673 814 6587</a>
-            <a href="mailto:pulseone239@gmail.com" class="contact-link">pulseone239@gmail.com</a>
-        </div>
-    </section>
+            <h2>Beyond the Wood</h2>
+            <p>Our ESG strategy extends to our logistics and governance. We optimize our delivery routes across <strong>Brunei and Malaysia</strong> to minimize carbon emissions and maintain high standards of ethical e-commerce management. We believe in transparency, which is why we offer 30-day structural warranties and clear return policies—ensuring every customer is treated with the same respect we show the environment.</p>
+        </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 PULSEONE FURNITURE SOLUTIONS. ALL RIGHTS RESERVED.</p>
-        </div>
+        <p>&copy; 2026 PULSEONE FURNITURE SOLUTIONS. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <script>
-        feather.replace();
-    </script>
+    <script>feather.replace();</script>
 </body>
 </html>
